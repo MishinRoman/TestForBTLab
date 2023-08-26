@@ -75,13 +75,14 @@ namespace SampelToDo.Services
             {
                 string fields = "";
                 string value = "";
-                foreach (var item in entity.GetType().GetProperties())
+                foreach (var item in entity.GetType().GetProperties().Where(x=>x.Name!="Id"))
                 {
                     if (!string.IsNullOrEmpty(fields))
                     {
                         value += ",";
                         fields += ",";
                     }
+                    
                     fields += _nameRewriter.RewriteName(item.Name);
                     value += $"'{item.GetValue(entity)}'";
                 }
