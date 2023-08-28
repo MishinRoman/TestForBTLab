@@ -1,7 +1,7 @@
 export interface ITimeSheet{
     id:number,
     reason:number,
-    startDate:Date,
+    startDate:any,
     duration:number,
     discounted:boolean,
     description:string

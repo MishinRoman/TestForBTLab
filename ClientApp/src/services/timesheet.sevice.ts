@@ -1,7 +1,7 @@
 import axios from "axios"
 import { ITimeSheet } from "./Interfaces"
 class TodoSevice {
-    private URL = '/'
+    private URL =  "/api/timesheets/"
     async getAll() {
         return axios.get<ITimeSheet[]>(this.URL)
     }
@@ -9,10 +9,10 @@ class TodoSevice {
         return axios.get<ITimeSheet>(this.URL+id)
     }
 
-    // async create(ITimeSheet): Promise<any>{
-    //     return axios.post<any, any, ITimeSheet>(this.URL, ITimeSheet)
-    // }
-    async delete(id:string):Promise<boolean>{
+    async create(data:ITimeSheet): Promise<any>{
+        return axios.post<any, any, ITimeSheet>(this.URL, data)
+    }
+    async delete(id:number):Promise<boolean>{
         return axios.delete<any, any, ITimeSheet>(this.URL+id)
     }
     async update(timesheet:ITimeSheet):Promise<ITimeSheet>{

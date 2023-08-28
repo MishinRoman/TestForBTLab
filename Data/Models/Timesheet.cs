@@ -5,7 +5,7 @@ namespace TestForBTLab.Data.Models
     public class Timesheet : BaseModel
     {
         
-        public Reasons Reason { get; set; }
+        public int Reason { get; set; }
       
         public DateTime StartDate { get; set; }
         public int Duration { get; set; }
